@@ -13,6 +13,10 @@ from dotenv import load_dotenv
 # Load default environment variables (.env)
 load_dotenv()
 
+# Time Counting
+StartTime = time.time()
+print("This Script Start " + time.ctime())
+
 # Engine configuration
 
 # API Keys
@@ -278,6 +282,12 @@ while True:
         print(str(task["task_id"]) + ": " + task["task_name"])
 
         # Send to execution function to complete the task based on the context
+        # TODO: Add time
+        # Time Counting
+        current_time = time.time()
+        total_running_time = current_time - StartTime
+        print("and\nThis Script is running for " + str(int(total_running_time / 60)) + " Minutes.")
+
         try:
             result = execution_agent(OBJECTIVE, task["task_name"])
         except:
