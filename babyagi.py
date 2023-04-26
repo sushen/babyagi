@@ -286,11 +286,13 @@ while True:
         # Time Counting
         current_time = time.time()
         total_running_time = current_time - StartTime
-        print("and\nThis Script is running for " + str(int(total_running_time / 60)) + " Minutes.")
+        print("and\nAi is running for " + str(int(total_running_time / 60)) + " Minutes.")
 
         try:
             result = execution_agent(OBJECTIVE, task["task_name"])
         except:
+            print("I have to handle exception here")
+            time.sleep(61)
             result = execution_agent(OBJECTIVE, task["task_name"])
 
         this_task_id = int(task["task_id"])
